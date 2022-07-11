@@ -21,7 +21,7 @@ public class ProductCategory {
     )
     private Long id;
     private String name;
-    private String desc;
+    private String description;
     private Date createdAt;
     private Date modifiedAt;
     private Date deletedAt;
