@@ -20,7 +20,7 @@ public class ProductCategoryService {
     private ProductCategoryRepo productCategoryRepo;
     @Autowired
     private CategoryDtoToCategoryPojo categoryDtoToCategoryPojo;
-//    private LocalDate localDate = LocalDate.now();
+    private LocalDate localDate = LocalDate.now();
 
     public Long addCategory(ProductCategoryDto request) {
         final String name = request.getName().trim().toUpperCase();
@@ -31,7 +31,7 @@ public class ProductCategoryService {
 
 
         final ProductCategory category = categoryDtoToCategoryPojo.getCategory(request);
-        LocalDate localDate = LocalDate.now();
+//        LocalDate localDate = LocalDate.now();
         category.setCreatedAt(Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
         final ProductCategory save = productCategoryRepo.save(category);
 
@@ -58,7 +58,7 @@ public class ProductCategoryService {
     }
 
     public Boolean removeCategoryById(Long id) {
-        LocalDate localDate = LocalDate.now();
+//        LocalDate localDate = LocalDate.now();
 
         if (id != null){
             final Optional<ProductCategory> byId = productCategoryRepo.findById(id);
@@ -66,17 +66,39 @@ public class ProductCategoryService {
                 final ProductCategory category = byId.get();
                 category.setDeletedAt(Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
                 System.out.println(category.getDeletedAt());
-                update(category);
+                delete(category);
                 return true;
             }
             return false;
         }
         return false;
     }
-    private void update(ProductCategory category){
+    private void delete(ProductCategory category){
 
-        productCategoryRepo.deleteCategoryById(category.getId(), category.getDeletedAt());
+        final int i = productCategoryRepo.deleteCategoryById(category.getId(), category.getDeletedAt());
+        System.out.println("i=================>"+i);
     }
 
 
+    public Boolean updateCategoryById(Long id) {
+        if (id != null){
+            final Optional<ProductCategory> byId = productCategoryRepo.findById(id);
+            if (byId.isPresent()){
+                final ProductCategory category = byId.get();
+                category.setModifiedAt(Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
+                System.out.println(category.getDeletedAt());
+                update(category);
+                return true;
+            }
+            return false;
+        }
+
+
+        return false;
+    }
+
+    private void update(ProductCategory category){
+        final int i = productCategoryRepo.updateCategoryById(category.getId(), category.getModifiedAt());
+        System.out.println("i=================>"+i);
+    }
 }

@@ -63,7 +63,7 @@
                     <p>Deleted Date: ${responseCategoryDto.deletedAt}</p>
                     <p>Active: ${responseCategoryDto.active}</p>
                     <a href="${pageContext.request.contextPath}/api/page/v1/inventory/categories/delete/${responseCategoryDto.id}" class="btn btn-danger">Delete</a>
-                    <a href="" class="btn btn-warning">Update</a>
+                    <a href="${pageContext.request.contextPath}/api/page/v1/inventory/categories/update/${responseCategoryDto.id}" class="btn btn-warning">Update</a>
                   </div>
                 </div>
               </div>

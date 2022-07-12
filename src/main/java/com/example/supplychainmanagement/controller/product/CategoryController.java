@@ -60,7 +60,19 @@ public class CategoryController {
         final Boolean aBoolean = productCategoryService.removeCategoryById(Long.parseLong(id));
         if (aBoolean){
             // TODO Deleting process
-            System.out.println("Deleted Success!");
+            System.out.println("Deleted Successful!");
+        }
+
+        return "redirect:/api/page/v1/inventory/categories/insert/all/show";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updateCategoryById(@PathVariable("id") String id){
+        System.out.println(id+"================"+ id.getClass());
+        final Boolean aBoolean = productCategoryService.updateCategoryById(Long.parseLong(id));
+        if (aBoolean){
+            // TODO Updating process
+            System.out.println("Updated Successful!");
         }
 
         return "redirect:/api/page/v1/inventory/categories/insert/all/show";
