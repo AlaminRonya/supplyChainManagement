@@ -25,6 +25,7 @@ public class ProductCategory {
     private Date createdAt;
     private Date modifiedAt;
     private Date deletedAt;
+    private Boolean active = true;
 
 //    @ManyToOne(fetch = FetchType.EAGER, optional = true, cascade = CascadeType.PERSIST)
 //    @JoinTable(name = "product_categories", joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = true),
