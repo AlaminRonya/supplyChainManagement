@@ -17,30 +17,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-<%--      <img th:src="@{/images/logo.png}"  src="../static/images/logo.png" width="auto" height="40" class="d-inline-block align-top" alt=""/>--%>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto"></ul>
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link"  href="#">admin-home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link"  href="#">logout</a>
-        </li>
-
-      </ul>
-
-    </div>
-  </div>
-</nav>
+<jsp:include page="../include/navbar.jsp"/>
 <div class="container">
 
   <a style="margin: 20px 0" href="${pageContext.request.contextPath}/api/page/v1/inventory/categories/addCategory" class="btn btn-primary">Add Category</a>
@@ -55,8 +32,8 @@
               <div class="row no-gutters">
                 <div class="col-sm-7 d-flex justify-content-center">
                   <div class="card-body">
-                    <h5 class="card-title">${responseCategoryDto.name}</h5>
-                    <h4>ID: <span>${responseCategoryDto.id}</span></h4>
+                    <h5 class="card-title">ID: ${responseCategoryDto.id}</h5>
+                    <h4>Name: <span>${responseCategoryDto.name}</span></h4>
                     <h4>Description: <span>${responseCategoryDto.description}</span></h4>
                     <h4>Create Date: <span>${responseCategoryDto.createdAt}</span></h4>
                     <p>Modified Date: ${responseCategoryDto.modifiedAt}</p>

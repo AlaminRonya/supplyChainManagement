@@ -34,6 +34,9 @@ public class ProductCategoryService {
 //        LocalDate localDate = LocalDate.now();
         category.setCreatedAt(Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
         final ProductCategory save = productCategoryRepo.save(category);
+        if (save.getId() != null){
+            System.out.println("Insert success!");
+        }
 
         return save.getId();
 

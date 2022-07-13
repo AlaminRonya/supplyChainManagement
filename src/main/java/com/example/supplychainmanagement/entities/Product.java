@@ -1,6 +1,8 @@
 package com.example.supplychainmanagement.entities;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,6 +22,7 @@ public class Product {
             strategy = GenerationType.SEQUENCE,
             generator = "product_sequence"
     )
+    @Setter(AccessLevel.NONE)
     private Long id;
     private String name;
     private String desc;

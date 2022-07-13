@@ -1,6 +1,8 @@
 package com.example.supplychainmanagement.entities;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +15,7 @@ public class Attachment implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(AccessLevel.NONE)
     private Long id;
 
     @Column(name = "attachment_name")

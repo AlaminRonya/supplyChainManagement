@@ -1,7 +1,9 @@
 package com.example.supplychainmanagement.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,6 +22,7 @@ public class Discount {
             strategy = GenerationType.SEQUENCE,
             generator = "discount_sequence"
     )
+    @Setter(AccessLevel.NONE)
     private Long id;
     private String name;
     private String desc;

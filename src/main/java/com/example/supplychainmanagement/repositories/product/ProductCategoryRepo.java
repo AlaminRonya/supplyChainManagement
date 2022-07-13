@@ -17,11 +17,13 @@ public interface ProductCategoryRepo extends JpaRepository<ProductCategory, Long
 
     @Transactional
     @Modifying
-    @Query("UPDATE ProductCategory c " + "SET c.deletedAt = ?2, c.modifiedAt = ?2, c.active = FALSE WHERE c.id = ?1")
+    @Query("UPDATE ProductCategory c " +
+            "SET c.deletedAt = ?2, c.modifiedAt = ?2, c.active = FALSE WHERE c.id = ?1")
     int deleteCategoryById(Long id, Date date);
 
     @Transactional
     @Modifying
-    @Query("UPDATE ProductCategory c " + "SET c.modifiedAt = ?2, c.active = TRUE WHERE c.id = ?1")
+    @Query("UPDATE ProductCategory c " +
+            "SET c.modifiedAt = ?2, c.active = TRUE WHERE c.id = ?1")
     int updateCategoryById(Long id, Date date);
 }

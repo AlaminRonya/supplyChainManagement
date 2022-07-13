@@ -11,12 +11,14 @@ import java.util.stream.Collectors;
 
 @Component
 public class CategoryDtoToCategoryPojo {
+
     public ProductCategory getCategory(ProductCategoryDto dto){
         ProductCategory category = new ProductCategory();
         category.setName(dto.getName().trim().toUpperCase());
         category.setDescription(dto.getDesc().trim());
         return category;
     }
+
     public ResponseCategoryDto pojoToDto(ProductCategory category){
         ResponseCategoryDto dto = new ResponseCategoryDto();
         dto.setId(category.getId());
