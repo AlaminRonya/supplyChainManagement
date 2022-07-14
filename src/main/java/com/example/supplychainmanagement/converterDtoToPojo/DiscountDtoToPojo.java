@@ -1,7 +1,7 @@
 package com.example.supplychainmanagement.converterDtoToPojo;
 
-import com.example.supplychainmanagement.dto.DiscountDto;
-import com.example.supplychainmanagement.dto.ResponseDiscountDto;
+import com.example.supplychainmanagement.dto.request.DiscountDto;
+import com.example.supplychainmanagement.dto.response.ResponseDiscountDto;
 import com.example.supplychainmanagement.entities.Discount;
 import org.springframework.stereotype.Component;
 

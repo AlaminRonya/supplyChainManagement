@@ -1,8 +1,8 @@
 package com.example.supplychainmanagement.services.product;
 
 import com.example.supplychainmanagement.converterDtoToPojo.DiscountDtoToPojo;
-import com.example.supplychainmanagement.dto.DiscountDto;
-import com.example.supplychainmanagement.dto.ResponseDiscountDto;
+import com.example.supplychainmanagement.dto.request.DiscountDto;
+import com.example.supplychainmanagement.dto.response.ResponseDiscountDto;
 import com.example.supplychainmanagement.entities.Discount;
 import com.example.supplychainmanagement.repositories.product.DiscountRepo;
 import org.springframework.beans.factory.annotation.Autowired;

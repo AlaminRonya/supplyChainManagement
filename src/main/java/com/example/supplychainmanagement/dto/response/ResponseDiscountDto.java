@@ -1,4 +1,4 @@
-package com.example.supplychainmanagement.dto;
+package com.example.supplychainmanagement.dto.response;
 
 import lombok.Data;
 

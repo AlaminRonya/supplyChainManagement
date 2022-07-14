@@ -1,7 +1,7 @@
 package com.example.supplychainmanagement.converterDtoToPojo;
 
-import com.example.supplychainmanagement.dto.ProductCategoryDto;
-import com.example.supplychainmanagement.dto.ResponseCategoryDto;
+import com.example.supplychainmanagement.dto.request.ProductCategoryDto;
+import com.example.supplychainmanagement.dto.response.ResponseCategoryDto;
 import com.example.supplychainmanagement.entities.ProductCategory;
 import com.example.supplychainmanagement.utils.DateUtils;
 import org.springframework.stereotype.Component;

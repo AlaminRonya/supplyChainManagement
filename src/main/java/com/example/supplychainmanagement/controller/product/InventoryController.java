@@ -1,7 +1,7 @@
 package com.example.supplychainmanagement.controller.product;
 
-import com.example.supplychainmanagement.dto.ProductInventoryDto;
-import com.example.supplychainmanagement.dto.ResponseInventoryDto;
+import com.example.supplychainmanagement.dto.request.ProductInventoryDto;
+import com.example.supplychainmanagement.dto.response.ResponseInventoryDto;
 import com.example.supplychainmanagement.services.product.ProductInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

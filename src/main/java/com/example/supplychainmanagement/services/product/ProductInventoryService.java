@@ -1,8 +1,8 @@
 package com.example.supplychainmanagement.services.product;
 
 import com.example.supplychainmanagement.converterDtoToPojo.InventoryDtoToPojo;
-import com.example.supplychainmanagement.dto.ProductInventoryDto;
-import com.example.supplychainmanagement.dto.ResponseInventoryDto;
+import com.example.supplychainmanagement.dto.request.ProductInventoryDto;
+import com.example.supplychainmanagement.dto.response.ResponseInventoryDto;
 import com.example.supplychainmanagement.entities.ProductInventory;
 import com.example.supplychainmanagement.repositories.product.ProductInventoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;

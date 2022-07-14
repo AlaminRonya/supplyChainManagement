@@ -1,9 +1,8 @@
 package com.example.supplychainmanagement.controller.product;
 
-import com.example.supplychainmanagement.dto.DiscountDto;
-import com.example.supplychainmanagement.dto.ResponseDiscountDto;
-import com.example.supplychainmanagement.dto.ResponseInventoryDto;
-import com.example.supplychainmanagement.dto.UpdateDiscountDto;
+import com.example.supplychainmanagement.dto.request.DiscountDto;
+import com.example.supplychainmanagement.dto.response.ResponseDiscountDto;
+import com.example.supplychainmanagement.dto.request.UpdateDiscountDto;
 import com.example.supplychainmanagement.services.product.DiscountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

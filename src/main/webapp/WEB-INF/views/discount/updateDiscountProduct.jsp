@@ -31,7 +31,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <%--@elvariable id="updateDiscountDto" type="com.example.supplychainmanagement.dto.UpdateDiscountDto"--%>
+                <%--@elvariable id="updateDiscountDto" type="com.example.supplychainmanagement.dto.request.UpdateDiscountDto"--%>
                 <form:form action="${pageContext.request.contextPath}/api/page/v1/inventory/product/discounts/update/${discountDto.id}" method="post" modelAttribute="updateDiscountDto" >
 
                     <div class="form-group">

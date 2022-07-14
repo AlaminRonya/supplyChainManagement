@@ -19,7 +19,7 @@
             <div class="col-sm-6">
                 <h3 style="margin-top: 10px">App Inventory Manager</h3>
                 <p>Please fill out this to add category</p>
-                <%--@elvariable id="productCategoryDto" type="com.example.supplychainmanagement.dto.ProductCategoryDto"--%>
+                <%--@elvariable id="productCategoryDto" type="com.example.supplychainmanagement.dto.request.ProductCategoryDto"--%>
                 <form:form action="${pageContext.request.contextPath}/api/page/v1/inventory/categories/addCategory" method="POST" modelAttribute="productCategoryDto" >
                     <div class="form-group">
                         <label for="name">Name</label>

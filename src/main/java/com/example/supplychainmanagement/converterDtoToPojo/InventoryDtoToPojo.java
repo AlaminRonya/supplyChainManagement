@@ -1,7 +1,7 @@
 package com.example.supplychainmanagement.converterDtoToPojo;
 
-import com.example.supplychainmanagement.dto.ProductInventoryDto;
-import com.example.supplychainmanagement.dto.ResponseInventoryDto;
+import com.example.supplychainmanagement.dto.request.ProductInventoryDto;
+import com.example.supplychainmanagement.dto.response.ResponseInventoryDto;
 import com.example.supplychainmanagement.entities.ProductInventory;
 import org.springframework.stereotype.Component;
 

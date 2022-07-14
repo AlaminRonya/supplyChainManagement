@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-9">
 
-                    <%--@elvariable id="productInventoryDto" type="com.example.supplychainmanagement.dto.ProductInventoryDto"--%>
+                    <%--@elvariable id="productInventoryDto" type="com.example.supplychainmanagement.dto.request.ProductInventoryDto"--%>
                     <form:form action="${pageContext.request.contextPath}/api/page/v1/inventory/product/inventories/update/quantity/${inventoryDto.id}" method="post" modelAttribute="productInventoryDto" >
                         <div class="form-group">
                             <label for="quantity">Quantity number</label>

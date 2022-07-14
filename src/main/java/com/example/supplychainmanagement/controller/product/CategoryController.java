@@ -1,7 +1,7 @@
 package com.example.supplychainmanagement.controller.product;
 
-import com.example.supplychainmanagement.dto.ProductCategoryDto;
-import com.example.supplychainmanagement.dto.ResponseCategoryDto;
+import com.example.supplychainmanagement.dto.request.ProductCategoryDto;
+import com.example.supplychainmanagement.dto.response.ResponseCategoryDto;
 import com.example.supplychainmanagement.services.product.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.net.Proxy;
 import java.util.List;
 
 @Controller
