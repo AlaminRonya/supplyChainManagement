@@ -25,7 +25,7 @@ public class Product {
     @Setter(AccessLevel.NONE)
     private Long id;
     private String name;
-    private String desc;
+    private String description;
     private String SKU;
     private Double price;
     private Date createdAt;

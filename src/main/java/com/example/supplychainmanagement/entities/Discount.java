@@ -25,9 +25,9 @@ public class Discount {
     @Setter(AccessLevel.NONE)
     private Long id;
     private String name;
-    private String desc;
-    private Double discountPercent;
-    private Boolean active;
+    private String description;
+    private Double discountPercent = 0.00;
+    private Boolean active = false;
     private Date createdAt;
     private Date modifiedAt;
     private Date deletedAt;
