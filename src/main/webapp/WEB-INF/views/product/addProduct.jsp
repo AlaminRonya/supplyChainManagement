@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Add Product</title>
+    <jsp:include page="../include/css.jsp"/>
 </head>
 <body>
 <div class="container">
@@ -21,23 +22,23 @@
                 <h3 style="margin-top: 10px">Add Product</h3>
                 <p>Please fill out this to form</p>
                 <%--@elvariable id="productDto" type="com.example.supplychainmanagement.dto.request.ProductDto"--%>
-                <form:form action="${pageContext.request.contextPath}" method="POST" modelAttribute="productDto" enctype="multipart/form-data">
+                <form:form action="${pageContext.request.contextPath}/api/page/v1/inventory/products/addProduct" method="POST" modelAttribute="productDto" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Product Name</label>
                         <form:input type="text" name="name" id="name" path="name"  placeholder="Your Name" class="form-control form-control-lg"/>
-                        <form:errors path="name" cssClass="error" />
+                        <form:errors path="name" cssClass="text-danger" />
                     </div>
 
                     <div class="form-group">
                         <label for="description">Product Description</label>
                         <form:input type="text" class="form-control form-control-lg" path="description"  placeholder="Description" name="description" id="description"/>
-                        <form:errors path="description" cssClass="error" />
+                        <form:errors path="description" cssClass="text-danger" />
                     </div>
 
                     <div class="form-group">
                         <label for="SKU">Product SKU</label>
                         <form:input type="text" name="SKU" id="SKU" path="SKU"  placeholder="SKU" class="form-control form-control-lg"/>
-                        <form:errors path="SKU" cssClass="error" />
+                        <form:errors path="SKU" cssClass="text-danger" />
                     </div>
 
                     <div class="form-group">
@@ -55,24 +56,24 @@
                     <div class="form-group">
                         <label for="categoryName">Category Name:</label>
                         <form:select cssClass="dropdown" id="categoryName" path="categoryName">
-                            <form:option selected="true" value="Select Course" disabled="true"/>
+                            <form:option selected="true" value="Select Category" disabled="true"/>
                             <form:options items="${allCategoryName}"/>
                         </form:select>
-                        <form:errors path="categoryName" cssClass="error" />
+                        <form:errors path="categoryName" cssClass="text-danger" />
                     </div>
 
                     <div class="form-group">
                         <label for="discountName">Discount Name:</label>
                         <form:select cssClass="dropdown" id="discountName" path="discountName">
-                            <form:option selected="true" value="Select Course" disabled="true"/>
+                            <form:option selected="true" value="Select Discount" disabled="true"/>
                             <form:options items="${allDiscountName}"/>
                         </form:select>
-                        <form:errors path="discountName" cssClass="error" />
+                        <form:errors path="discountName" cssClass="text-danger" />
                     </div>
 
                     <div class="form-group">
                         <label>Product Image</label>
-                        <input type="file" name="image" accept="image/*"/>
+                        <input type="file" name="productImage" accept="image/*"/>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Create</button>

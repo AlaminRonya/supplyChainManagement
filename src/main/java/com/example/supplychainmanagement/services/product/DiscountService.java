@@ -2,6 +2,7 @@ package com.example.supplychainmanagement.services.product;
 
 import com.example.supplychainmanagement.converterDtoToPojo.DiscountDtoToPojo;
 import com.example.supplychainmanagement.dto.request.DiscountDto;
+import com.example.supplychainmanagement.dto.response.ResponseCategoryDto;
 import com.example.supplychainmanagement.dto.response.ResponseDiscountDto;
 import com.example.supplychainmanagement.entities.Discount;
 import com.example.supplychainmanagement.repositories.product.DiscountRepo;
@@ -13,6 +14,7 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DiscountService {
@@ -79,8 +81,10 @@ public class DiscountService {
             return true;
         }
 
-
-
         return false;
+    }
+
+    public List<String> getDiscountsName(){
+        return getAllDiscounts().stream().map(ResponseDiscountDto::getName).collect(Collectors.toList());
     }
 }

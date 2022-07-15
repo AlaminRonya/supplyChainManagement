@@ -2,17 +2,20 @@ package com.example.supplychainmanagement.services.product;
 
 import com.example.supplychainmanagement.converterDtoToPojo.CategoryDtoToCategoryPojo;
 import com.example.supplychainmanagement.dto.request.ProductCategoryDto;
+import com.example.supplychainmanagement.dto.request.ProductDto;
 import com.example.supplychainmanagement.dto.response.ResponseCategoryDto;
 import com.example.supplychainmanagement.entities.ProductCategory;
 import com.example.supplychainmanagement.repositories.product.ProductCategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductCategoryService {
@@ -100,8 +103,14 @@ public class ProductCategoryService {
         return false;
     }
 
+    public List<String> getCategoriesName(){
+        return getAllCategory().stream().map(ResponseCategoryDto::getName).collect(Collectors.toList());
+    }
+
     private void update(ProductCategory category){
         final int i = productCategoryRepo.updateCategoryById(category.getId(), category.getModifiedAt());
         System.out.println("i=================>"+i);
     }
+
+
 }

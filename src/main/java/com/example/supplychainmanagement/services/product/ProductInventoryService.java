@@ -31,6 +31,13 @@ public class ProductInventoryService {
 
         return save.getId() != null;
     }
+
+    public ProductInventory addProductInventory(ProductInventoryDto productInventoryDto) {
+
+        final ProductInventory productInventory = inventoryDtoToPojo.getProductInventory(productInventoryDto);
+        productInventory.setCreatedAt(Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
+        return productInventoryRepo.save(productInventory);
+    }
     public List<ResponseInventoryDto> getAllInventoryDto(){
         final List<ProductInventory> all = productInventoryRepo.findAll();
         return inventoryDtoToPojo.entitiesToDto(all);
