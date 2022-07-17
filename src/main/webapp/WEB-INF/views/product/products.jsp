@@ -50,10 +50,19 @@
                                     <p>Product Create Date: <span>${responseProductDto.createdAt}</span></p>
                                     <p>Product Modified Date: <span>${responseProductDto.modifiedAt}</span></p>
                                     <p>Product Deleted Date: <span>${responseProductDto.deletedAt}</span></p>
-                                    <a href="${pageContext.request.contextPath}/api/page/v1/inventory/categories/delete/${responseCategoryDto.id}" class="btn btn-danger">Delete</a>
-                                    <a href="${pageContext.request.contextPath}/api/page/v1/inventory/categories/update/${responseCategoryDto.id}" class="btn btn-warning">Update</a>
+                                    <p>Product Inventory: <span>${responseProductDto.productInventory.quantity}</span></p>
+                                    <a href="${pageContext.request.contextPath}/api/page/v1/inventory/products/delete/${responseProductDto.id}" class="btn btn-danger">Delete</a>
+                                    <a href="${pageContext.request.contextPath}/api/page/v1/inventory/products/update/${responseProductDto.id}" class="btn btn-warning">Update</a>
                                 </div>
+
                             </div>
+
+<%--                            <a href="${pageContext.request.contextPath}/${responseProductDto.id}" class="btn btn-danger">Delete</a>--%>
+<%--                            <a href="${pageContext.request.contextPath}/api/page/v1/inventory/products/update/${responseProductDto.id}" class="btn btn-warning">Update</a>--%>
+<%--                            <a href="${pageContext.request.contextPath}/api/page/v1/inventory/categories/update/${responseProductDto.category.id}" class="btn btn-warning">View Category</a>--%>
+<%--                            <a href="${pageContext.request.contextPath}/api/page/v1/inventory/product/inventories/update/${responseProductDto.productInventory.id}" class="btn btn-warning">View Quantity</a>--%>
+<%--                            <a href="${pageContext.request.contextPath}/api/page/v1/inventory/product/discounts/update/${responseProductDto.discount.id}" class="btn btn-warning">View Discount</a>--%>
+
                         </div>
                     </div>
                 </c:forEach>

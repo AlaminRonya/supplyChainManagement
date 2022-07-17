@@ -2,7 +2,6 @@ package com.example.supplychainmanagement.services.product;
 
 import com.example.supplychainmanagement.converterDtoToPojo.DiscountDtoToPojo;
 import com.example.supplychainmanagement.dto.request.DiscountDto;
-import com.example.supplychainmanagement.dto.response.ResponseCategoryDto;
 import com.example.supplychainmanagement.dto.response.ResponseDiscountDto;
 import com.example.supplychainmanagement.entities.Discount;
 import com.example.supplychainmanagement.repositories.product.DiscountRepo;
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,10 +30,11 @@ public class DiscountService {
 
     public Boolean addDiscount(DiscountDto dto) {
         final String name = dto.getName().trim().toUpperCase();
-        final boolean present = discountRepo.findByName(name).isPresent();
-        if (present){
+
+        if (searchDiscountByName(name) != null){
             return false;
         }
+
         dto.setName(name);
         final Discount productDiscount = discountDtoToPojo.getProductDiscount(dto);
         productDiscount.setCreatedAt(Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
@@ -58,7 +57,10 @@ public class DiscountService {
 
 
     public void updateDiscountById(Long id, Double percent) {
-        update(id, percent);
+        if (search(id) != null){
+            update(id, percent);
+        }
+
     }
 
     private void update(Long id,Double percent) {
@@ -68,8 +70,7 @@ public class DiscountService {
 
     }
     private Discount search(Long id){
-        final Optional<Discount> byId = discountRepo.findById(id);
-        return byId.orElse(null);
+        return discountRepo.findById(id).orElse(null);
     }
 
 
@@ -82,6 +83,13 @@ public class DiscountService {
         }
 
         return false;
+    }
+
+    public Discount getDiscountByName(String name){
+        return searchDiscountByName(name);
+    }
+    private Discount searchDiscountByName(String name){
+        return discountRepo.findByName(name).orElse(null);
     }
 
     public List<String> getDiscountsName(){

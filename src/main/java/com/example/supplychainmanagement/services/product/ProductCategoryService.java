@@ -27,8 +27,8 @@ public class ProductCategoryService {
 
     public Long addCategory(ProductCategoryDto request) {
         final String name = request.getName().trim().toUpperCase();
-        final boolean present = productCategoryRepo.findByName(name).isPresent();
-        if (present){
+//        final boolean present = productCategoryRepo.findByName(name).isPresent();
+        if (searchCategoryByName(name) == null){
             return null;
         }
 
@@ -45,14 +45,12 @@ public class ProductCategoryService {
 
     }
 
-    public ResponseCategoryDto getCategoryById(Long parseLong) {
-        if (parseLong == null){
+    public ResponseCategoryDto getCategoryById(Long id) {
+        if (id == null){
             return null;
         }
-        final Optional<ProductCategory> byId = productCategoryRepo.findById(parseLong);
-        if (byId.isPresent()){
-            final ProductCategory category = byId.get();
-            System.out.println("Date:============>"+category.getCreatedAt());
+        final ProductCategory category = searchCategoryById(id);
+        if (category != null){
             return categoryDtoToCategoryPojo.pojoToDto(category);
         }
         return null;
@@ -64,35 +62,28 @@ public class ProductCategoryService {
     }
 
     public Boolean removeCategoryById(Long id) {
-//        LocalDate localDate = LocalDate.now();
 
         if (id != null){
-            final Optional<ProductCategory> byId = productCategoryRepo.findById(id);
-            if (byId.isPresent()){
-                final ProductCategory category = byId.get();
-                category.setDeletedAt(Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
-                System.out.println(category.getDeletedAt());
+            final ProductCategory category = searchCategoryById(id);
+            if (category != null){
                 delete(category);
                 return true;
             }
             return false;
         }
         return false;
+
     }
     private void delete(ProductCategory category){
-
-        final int i = productCategoryRepo.deleteCategoryById(category.getId(), category.getDeletedAt());
-        System.out.println("i=================>"+i);
+        productCategoryRepo.deleteCategoryById(category.getId(),
+                Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
     }
 
 
     public Boolean updateCategoryById(Long id) {
         if (id != null){
-            final Optional<ProductCategory> byId = productCategoryRepo.findById(id);
-            if (byId.isPresent()){
-                final ProductCategory category = byId.get();
-                category.setModifiedAt(Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
-                System.out.println(category.getDeletedAt());
+            final ProductCategory category = searchCategoryById(id);
+            if (category != null){
                 update(category);
                 return true;
             }
@@ -103,13 +94,23 @@ public class ProductCategoryService {
         return false;
     }
 
+    public ProductCategory getProductCategoryByName(String name){
+        return searchCategoryByName(name);
+    }
+    private ProductCategory searchCategoryById(Long id){
+        return productCategoryRepo.findById(id).orElse(null);
+    }
+    private ProductCategory searchCategoryByName(String name){
+        return productCategoryRepo.findByName(name).orElse(null);
+    }
+
     public List<String> getCategoriesName(){
         return getAllCategory().stream().map(ResponseCategoryDto::getName).collect(Collectors.toList());
     }
 
     private void update(ProductCategory category){
-        final int i = productCategoryRepo.updateCategoryById(category.getId(), category.getModifiedAt());
-        System.out.println("i=================>"+i);
+        productCategoryRepo.updateCategoryById(category.getId(),
+                Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
     }
 
 

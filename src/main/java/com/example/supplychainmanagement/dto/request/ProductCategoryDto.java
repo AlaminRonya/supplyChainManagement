@@ -1,8 +1,6 @@
 package com.example.supplychainmanagement.dto.request;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
@@ -16,7 +14,7 @@ public class ProductCategoryDto {
     private String name;
 
     @NotBlank(message = "*must not be blank")
-    @Size(min = 4, max = 25, message = "size must be between 4 and 25")
+    @Size(min = 4, max = 255, message = "size must be between 4 and 255")
     private String desc;
 
 
