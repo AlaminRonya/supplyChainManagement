@@ -55,14 +55,14 @@
 
                         <div class="form-group">
                             <label for="categoryName">Category Name:</label>
-                            <form:input type="text" cssClass="form-control" value="${responseProductDto.category.name}" id="categoryName" path="categoryName"/>
+                            <form:input type="text" cssClass="form-control" value="${responseProductDto.category.name}" id="categoryName" path="categoryName" disabled="false"/>
                             <form:errors path="categoryName" cssClass="text-danger"/>
                         </div>
 
                         <div class="form-group">
                             <label for="discountName">Discount Name:</label>
                             <form:select cssClass="dropdown" id="discountName" path="discountName">
-                                <form:option selected="true" value="${responseProductDto.discount.name}" disabled="false"/>
+                                <form:option selected="true" value="${responseProductDto.discount.name}" />
                                 <form:options items="${allDiscountName}"/>
                             </form:select>
                             <form:errors path="discountName" cssClass="text-danger"/>
