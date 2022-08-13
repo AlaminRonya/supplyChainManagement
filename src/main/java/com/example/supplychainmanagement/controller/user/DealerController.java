@@ -19,9 +19,9 @@ public class DealerController {
 
     @GetMapping("/allDealer")
     public String getAllDealer(Model model){
-        final List<Dealer> allDealer = dealerService.getAllDealer();
-        System.out.println(allDealer);
-        System.out.println(allDealer.get(0).getUser().getEmail());
+//        final List<Dealer> allDealer = dealerService.getAllDealer();
+//        System.out.println(allDealer);
+//        System.out.println(allDealer.get(0).getUser().getEmail());
 
         model.addAttribute("dealers", dealerService.getAllDealer());
         return "user/dealers";

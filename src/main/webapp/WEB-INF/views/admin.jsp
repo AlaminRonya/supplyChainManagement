@@ -62,6 +62,21 @@
 
             </div>
 
+            <div class="row">
+                <div class="col-sm-3 pt-3" >
+                    <div class="card" style="background-color:white;">
+                        <div class="card-body">
+                            <h4 class="card-title">Dealer Approval</h4>
+                            <p class="card-text">Manage all the dealer's here.</p>
+                            <a href="${pageContext.request.contextPath}/page/v1/dealer/allDealer"  class="card-link btn btn-primary">Manage</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
         </div>
 
 

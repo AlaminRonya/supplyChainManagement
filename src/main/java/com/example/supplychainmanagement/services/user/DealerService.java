@@ -22,7 +22,11 @@ public class DealerService {
     private final LocalDate localDate = LocalDate.now();
 
     public List<Dealer> getAllDealer(){
-        return List.copyOf(dealerRepo.findAll());
+        final List<Dealer> all = dealerRepo.findAll();
+        if (all != null){
+            return List.copyOf(all);
+        }
+        return null;
     }
 
     public List<Dealer> getAllRequestDealer(){
