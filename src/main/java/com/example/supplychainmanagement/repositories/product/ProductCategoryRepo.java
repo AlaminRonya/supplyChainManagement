@@ -13,6 +13,7 @@ import java.util.Optional;
 @Repository
 @Transactional(readOnly = true)
 public interface ProductCategoryRepo extends JpaRepository<ProductCategory, Long> {
+
     Optional<ProductCategory> findByName(String name);
 
     @Transactional
@@ -26,4 +27,5 @@ public interface ProductCategoryRepo extends JpaRepository<ProductCategory, Long
     @Query("UPDATE ProductCategory c " +
             "SET c.modifiedAt = ?2, c.active = TRUE WHERE c.id = ?1")
     int updateCategoryById(Long id, Date date);
+
 }

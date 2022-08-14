@@ -12,7 +12,7 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link"  href="#">admin-home</a>
+                    <a class="nav-link"  href="${pageContext.request.contextPath}/inventory/admin">admin-home</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link"  href="#">logout</a>

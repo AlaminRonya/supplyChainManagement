@@ -13,6 +13,7 @@
     <jsp:include page="../include/css.jsp"/>
 </head>
 <body>
+<jsp:include page="../include/navbar.jsp"/>
 <div class="container">
     <table class="table">
         <thead class="thead-light">

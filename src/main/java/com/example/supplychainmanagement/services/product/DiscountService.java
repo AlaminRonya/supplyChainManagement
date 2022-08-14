@@ -95,4 +95,12 @@ public class DiscountService {
     public List<String> getDiscountsName(){
         return getAllDiscounts().stream().map(ResponseDiscountDto::getName).collect(Collectors.toList());
     }
+
+    public void addAllDiscountRunTime(List<Discount> discounts) {
+        for (Discount discount: discounts){
+            if (searchDiscountByName(discount.getName()) == null){
+                discountRepo.save(discount);
+            }
+        }
+    }
 }

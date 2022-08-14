@@ -114,4 +114,11 @@ public class ProductCategoryService {
     }
 
 
+    public void addAllCategoryRunTime(List<ProductCategory> categories) {
+        for (ProductCategory category: categories){
+            if (searchCategoryByName(category.getName()) == null){
+                productCategoryRepo.save(category);
+            }
+        }
+    }
 }
